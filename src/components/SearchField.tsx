@@ -21,9 +21,7 @@ const SearchField = (props: SearchFieldProps) => {
         const result = data.filter((item) => {
             const dataTosearch = JSON.parse(JSON.stringify(item))
             return dataTosearch.search.some(isPresent)
-            // return dataTosearch.search.map((data: string) => data.includes(searchText)).includes(true)
         })
-        console.log(result)
         const option = result.map((item) => {
             return { value: `${item.code}-${item.name}`, label: `${item.code}-${item.name}` }
         })
