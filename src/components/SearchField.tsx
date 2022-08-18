@@ -10,6 +10,7 @@ const SearchField = (props: SearchFieldProps) => {
     const [options, setOptions] = useState<option[]>([]);
     const [searchString, setSearchString] = useState<string>("")
     console.log(searchString)
+    console.log(options)
 
     function onSearch(searchText: string) {
         if (searchText === "") {
