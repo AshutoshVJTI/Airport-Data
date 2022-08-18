@@ -15,13 +15,13 @@ const SearchField = (props: SearchFieldProps) => {
             setOptions([])
             return
         }
-        // function isPresent(searchData: string) {
-        //     return searchData.includes(searchText)
-        // }
+        function isPresent(searchData: string) {
+            return searchData.includes(searchText.toLowerCase())
+        }
         const result = data.filter((item) => {
             const dataTosearch = JSON.parse(JSON.stringify(item))
-            // return dataTosearch.search.some(isPresent)
-            return dataTosearch.search.map((data: string) => data.includes(searchText)).includes(true)
+            return dataTosearch.search.some(isPresent)
+            // return dataTosearch.search.map((data: string) => data.includes(searchText)).includes(true)
         })
         console.log(result)
         const option = result.map((item) => {
