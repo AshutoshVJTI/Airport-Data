@@ -9,6 +9,7 @@ const SearchField = (props: SearchFieldProps) => {
     const { label, data, setValue, placeholder } = props;
     const [options, setOptions] = useState<option[]>([]);
     const [searchString, setSearchString] = useState<string>("")
+    console.log(searchString)
 
     function onSearch(searchText: string) {
         if (searchText === "") {
