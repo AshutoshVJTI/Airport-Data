@@ -13,7 +13,6 @@ const SearchField = (props: SearchFieldProps) => {
     console.log(options)
 
     function onSearch(searchText: string) {
-        console.log(searchText)
         if (searchText === "") {
             setOptions([])
             return
@@ -25,9 +24,11 @@ const SearchField = (props: SearchFieldProps) => {
             const dataTosearch = JSON.parse(JSON.stringify(item))
             return dataTosearch.search.some(isPresent)
         })
+        console.log(result)
         const option = result.map((item) => {
             return { value: `${item.code}-${item.name}`, label: `${item.code}-${item.name}` }
         })
+        console.log(option)
         setOptions(option)
     };
 
