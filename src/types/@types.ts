@@ -23,8 +23,8 @@ export interface SearchFieldProps {
 }
 
 export interface option {
-    label: string;
     value: string;
+    label: string;
 }
 
 export interface MapProps {

@@ -70,7 +70,7 @@
   );
   color: #eef0f0 !important;
   transition: 0.3s ease-in-out;
-  z-index: 50;
+  /* z-index: 50; */
   border-radius: 0.25rem !important;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   margin: 0.25em;
@@ -83,7 +83,7 @@
   justify-content: center;
 }
 
-/* @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .main-heading {
     font-size: 20px;
   }
@@ -108,4 +108,4 @@
   .distance {
     font-size: 16px;
   }
-} */
+}
