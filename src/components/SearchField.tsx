@@ -16,13 +16,14 @@ const SearchField = (props: SearchFieldProps) => {
             return
         }
         function isPresent(searchData: string) {
-            console.log(searchData)
             return searchData.includes(searchText)
         }
         const result = data.filter((item) => {
             const dataTosearch = JSON.parse(JSON.stringify(item))
+            console.log(dataTosearch)
             return dataTosearch.search.some(isPresent)
         })
+        console.log(result)
         const option = result.map((item) => {
             return { value: `${item.code}-${item.name}`, label: `${item.code}-${item.name}` }
         })
