@@ -20,7 +20,7 @@ const SearchField = (props: SearchFieldProps) => {
         }
         const result = data.filter((item) => {
             const dataTosearch = JSON.parse(JSON.stringify(item))
-            console.log(dataTosearch)
+            console.log(dataTosearch.search.some(isPresent))
             return dataTosearch.search.some(isPresent)
         })
         console.log(result)
