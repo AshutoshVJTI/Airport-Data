@@ -9,26 +9,22 @@ const SearchField = (props: SearchFieldProps) => {
     const { label, data, setValue, placeholder } = props;
     const [options, setOptions] = useState<option[]>([]);
     const [searchString, setSearchString] = useState<string>("")
-    console.log(searchString)
-    console.log(options)
 
     function onSearch(searchText: string) {
         if (searchText === "") {
             setOptions([])
             return
         }
-        function isPresent(searchData: string) {
+        function isPresent(searchData: any) {
             return searchData.includes(searchText)
         }
         const result = data.filter((item) => {
             const dataTosearch = JSON.parse(JSON.stringify(item))
             return dataTosearch.search.some(isPresent)
         })
-        console.log(result)
         const option = result.map((item) => {
             return { value: `${item.code}-${item.name}`, label: `${item.code}-${item.name}` }
         })
-        console.log(option)
         setOptions(option)
     };
 
