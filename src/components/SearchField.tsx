@@ -15,7 +15,8 @@ const SearchField = (props: SearchFieldProps) => {
             setOptions([])
             return
         }
-        function isPresent(searchData: any) {
+        function isPresent(searchData: string) {
+            console.log(searchData)
             return searchData.includes(searchText)
         }
         const result = data.filter((item) => {
