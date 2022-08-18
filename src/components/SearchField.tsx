@@ -13,6 +13,7 @@ const SearchField = (props: SearchFieldProps) => {
     console.log(options)
 
     function onSearch(searchText: string) {
+        console.log(searchText)
         if (searchText === "") {
             setOptions([])
             return
