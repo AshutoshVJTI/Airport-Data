@@ -18,7 +18,7 @@ export interface AirportData {
 export interface SearchFieldProps {
     label: string,
     data: AirportData[],
-    setValue: React.Dispatch<React.SetStateAction<string | null>>,
+    setValue: React.Dispatch<React.SetStateAction<string>>,
     placeholder: string,
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { GoogleMapsProps, MapProps } from "../../types/@types";
 import { Wrapper } from "@googlemaps/react-wrapper";
+import { GoogleMapsProps, MapProps } from "../types/@types";
 
 const GoogleMap = (props: GoogleMapsProps) => {
   const { children, style, center } = props;
