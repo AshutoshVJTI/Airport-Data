@@ -4,7 +4,7 @@ import SearchField from "../components/SearchField";
 import DistanceBetween from "../utils/DistanceBetween";
 import { airportData } from "../utils/constant";
 import { AirportData } from "../types/@types";
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 import "./distance.css";
 
 function DistancePage() {
