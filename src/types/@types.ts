@@ -34,10 +34,17 @@ export interface MapProps {
     air2: string;
     lat2: number;
     lon2: number;
+    distance: number;
 }
 
 export interface GoogleMapsProps {
     children: React.ReactNode;
     style: any;
     center: {lat: number, lng: number}
+    zoom: number;
 }
+
+export interface LatLng {
+    lat: number;
+    lng: number;
+  };

@@ -98,6 +98,7 @@ function DistancePage() {
               lat2={dataSelected[1].lat}
               lon2={dataSelected[1].lng}
               air2={dataSelected[1].name}
+              distance={distance}
             />
           ) : <div />}
         </div>
