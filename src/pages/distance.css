@@ -39,7 +39,7 @@
 }
 .main-fields-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .fields {
   flex: 1;
@@ -81,7 +81,7 @@
 }
 .button-wrapper {
   display: flex;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .fields-form {
@@ -90,6 +90,7 @@
 
 .field {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 

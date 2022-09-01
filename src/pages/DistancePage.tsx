@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import Map from "../components/Map";
-import SearchField from "../components/SearchField";
 import DistanceBetween from "../utils/DistanceBetween";
 import { airportData } from "../utils/constant";
 import { AirportData } from "../types/@types";
-import "antd/dist/antd.min.css";
 import "./distance.css";
+import Autocomplete from "../components/Autocomplete";
 
 function DistancePage() {
   const [data, setData] = useState<AirportData[]>([]);
@@ -68,13 +67,13 @@ function DistancePage() {
         <div className="card">
           <h1 className="main-heading">Distance Between Two Airports</h1>
           <div className="main-fields-wrapper">
-            <SearchField
+            <Autocomplete
               label="Airport 1"
               data={data}
               setValue={setFirstAirportLocation}
               placeholder="From"
             />
-            <SearchField
+            <Autocomplete
               label="Airport 2"
               data={data}
               setValue={setSecondAirportLocation}
