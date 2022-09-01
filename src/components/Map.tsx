@@ -15,7 +15,7 @@ const GoogleMap = (props: GoogleMapsProps) => {
 
   React.useEffect(() => {
     if (map) {
-      map.setOptions({center: center, zoom: 4});
+      map.setOptions({ center: center, zoom: 4 });
     }
   }, [map, center]);
 
@@ -39,7 +39,7 @@ const GoogleMap = (props: GoogleMapsProps) => {
   );
 };
 
-const Marker = (options: any) => {  
+const Marker = (options: any) => {
   const [marker, setMarker] = React.useState<any>();
 
   React.useEffect(() => {
@@ -57,7 +57,10 @@ const Marker = (options: any) => {
   React.useEffect(() => {
     if (marker) {
       const infowindow = new window.google.maps.InfoWindow({
-        content: options && options.position && options.position.air ? options.position.air : '',
+        content:
+          options && options.position && options.position.air
+            ? options.position.air
+            : "",
       });
       marker.setOptions(options);
 
@@ -79,13 +82,17 @@ const Map = (props: MapProps) => {
     { lat: lat1, lng: lon1, air: air1 },
     { lat: lat2, lng: lon2, air: air2 },
   ];
+  if (!process.env.REACT_APP_GOOGLE_API_KEY) return <></>;
 
   return (
     <div style={{ display: "flex", height: "300px", width: "100%" }}>
-      <Wrapper apiKey="AIzaSyAo-OzYlrONOWvtXUmMdei6v9Oadwm4OfQ">
-        <GoogleMap style={{ flexGrow: "1", height: "100%" }} center={{lat: lat1, lng: lon1}}>
+      <Wrapper apiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
+        <GoogleMap
+          style={{ flexGrow: "1", height: "100%" }}
+          center={{ lat: lat1, lng: lon1 }}
+        >
           {markers.map((marker, index) => {
-            return <Marker position={marker} key={`Marker ${index}`}/>;
+            return <Marker position={marker} key={`Marker ${index}`} />;
           })}
         </GoogleMap>
       </Wrapper>
