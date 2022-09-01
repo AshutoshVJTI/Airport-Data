@@ -1,0 +1,45 @@
+input {
+  border: 1px solid #999;
+  padding: 8px;
+  width: 90%;
+  max-height: 10px;
+  margin: 15px 0 15px 0;
+}
+.no-autocomplete {
+  color: #999;
+  padding: 8px;
+}
+.autocomplete {
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: 90%;
+}
+.autocomplete::-webkit-scrollbar {
+  display: none;
+}
+.autocomplete li {
+  padding: 8px;
+}
+.autocomplete > .active,
+.autocomplete li:hover {
+  background-color: darkgray;
+  cursor: pointer;
+  font-weight: 700;
+}
+.autocomplete li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
+
+.fields {
+  max-width: 400px;
+  flex: 1;
+}
+.fields span {
+  font-size: 20px;
+  margin-bottom: 15px;
+}

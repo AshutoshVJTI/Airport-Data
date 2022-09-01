@@ -1,6 +1,6 @@
 import React from "react";
-import { GoogleMapsProps, MapProps } from "../../types/@types";
 import { Wrapper } from "@googlemaps/react-wrapper";
+import { GoogleMapsProps, MapProps } from "../types/@types";
 
 const GoogleMap = (props: GoogleMapsProps) => {
   const { children, style, center } = props;
@@ -82,7 +82,7 @@ const Map = (props: MapProps) => {
 
   return (
     <div style={{ display: "flex", height: "300px", width: "100%" }}>
-      <Wrapper apiKey="AIzaSyBfvOfQRZDtLzByo5u3jAOCM_eyRqsXnHw">
+      <Wrapper apiKey="AIzaSyAo-OzYlrONOWvtXUmMdei6v9Oadwm4OfQ">
         <GoogleMap style={{ flexGrow: "1", height: "100%" }} center={{lat: lat1, lng: lon1}}>
           {markers.map((marker, index) => {
             return <Marker position={marker} key={`Marker ${index}`}/>;

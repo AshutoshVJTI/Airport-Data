@@ -15,10 +15,10 @@ export interface AirportData {
     statename: string,
 }
 
-export interface SearchFieldProps {
+export interface AutocompleteProps {
     label: string,
     data: AirportData[],
-    setValue: React.Dispatch<React.SetStateAction<string | null>>,
+    setValue: React.Dispatch<React.SetStateAction<string>>,
     placeholder: string,
 }
 
