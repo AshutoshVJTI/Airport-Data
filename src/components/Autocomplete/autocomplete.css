@@ -17,7 +17,11 @@ input {
   max-height: 143px;
   overflow-y: auto;
   padding-left: 0;
-  width: 90%;
+  width: 100%;
+  position: absolute;
+  background-color: #ffffff;
+  top: 45px;
+  z-index: 10;
 }
 .autocomplete::-webkit-scrollbar {
   display: none;
