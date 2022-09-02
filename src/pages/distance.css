@@ -59,7 +59,7 @@
   color: rgb(226, 65, 65);
 }
 .submit-button {
-  padding: 0.1em 1.5em;
+  padding: 0.7em 1.5em;
   background-image: linear-gradient(
     to right top,
     #02ace5,
@@ -70,14 +70,14 @@
   );
   color: #eef0f0 !important;
   transition: 0.3s ease-in-out;
-  /* z-index: 50; */
+  z-index: 50;
   border-radius: 0.25rem !important;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
   margin: 0.25em;
   border: 1px solid #55d6ffbf;
   margin-top: 24px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 15px;
 }
 .button-wrapper {
   display: flex;
