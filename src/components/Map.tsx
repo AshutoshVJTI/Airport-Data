@@ -1,32 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { GoogleMapsProps, MapProps } from "../types/@types";
 import calculateMidPoint from "../utils/CalculateMidpoint";
 
 const GoogleMap = (props: GoogleMapsProps) => {
   const { children, style, center, zoom = 3 } = props;
-  const ref = React.useRef(null);
-  const [map, setMap] = React.useState<any>();
+  const ref = useRef(null);
+  const [map, setMap] = useState<any>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (ref.current && !map) {
       setMap(new window.google.maps.Map(ref.current, {}));
     }
   }, [ref, map]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (map) {
       map.setOptions({ center: center, zoom: zoom });
     }
   }, [map, center, zoom]);
 
-  React.useEffect(() => {
-    if (map) {
-      ["click", "idle"].forEach((eventName) =>
-        window.google.maps.event.clearListeners(map, eventName)
-      );
-    }
-  }, [map]);
+  // useEffect(() => {
+  //   if (map) {
+  //     ["click", "idle"].forEach((eventName) =>
+  //       window.google.maps.event.clearListeners(map, eventName)
+  //     );
+  //   }
+  // }, [map]);
 
   return (
     <>
@@ -41,9 +41,9 @@ const GoogleMap = (props: GoogleMapsProps) => {
 };
 
 const Marker = (options: any) => {
-  const [marker, setMarker] = React.useState<any>();
+  const [marker, setMarker] = useState<any>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!marker) {
       setMarker(new window.google.maps.Marker());
     }
@@ -55,7 +55,7 @@ const Marker = (options: any) => {
     };
   }, [marker]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (marker) {
       const infowindow = new window.google.maps.InfoWindow({
         content:
@@ -83,16 +83,24 @@ const Map = (props: MapProps) => {
     { lat: lat1, lng: lon1, air: air1 },
     { lat: lat2, lng: lon2, air: air2 },
   ];
-  const midpoint = calculateMidPoint({lat: lat1, lng: lon1}, {lat: lat2, lng: lon2})
-  const zoom = distance < 2000 ? 5 - (distance / 400) : 2.5;
-  if (!process.env.REACT_APP_GOOGLE_API_KEY) return <h3 style={{color: 'red'}}>Please provide Google API Key in .env file to view map</h3>;
+  const midpoint = calculateMidPoint(
+    { lat: lat1, lng: lon1 },
+    { lat: lat2, lng: lon2 }
+  );
+  const zoom = distance < 2000 ? 5 - distance / 400 : 2.5;
+  if (!process.env.REACT_APP_GOOGLE_API_KEY)
+    return (
+      <h3 style={{ color: "red" }}>
+        Please provide Google API Key in .env file to view map
+      </h3>
+    );
 
   return (
     <div style={{ display: "flex", height: "300px", width: "100%" }}>
       <Wrapper apiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
         <GoogleMap
           style={{ flexGrow: "1", height: "100%" }}
-          center={{ lat: midpoint[0], lng: midpoint[1]}}
+          center={{ lat: midpoint[0], lng: midpoint[1] }}
           zoom={zoom}
         >
           {markers.map((marker, index) => {
