@@ -17,7 +17,7 @@ function DistancePage() {
   useEffect(() => {
     const dataToSet = airportData.map((item) => ({
       ...item,
-      search: item.search.split("|"),
+      searchArray: item.search?.split("|"),
     }));
     setData(dataToSet);
   }, []);

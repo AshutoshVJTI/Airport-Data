@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
-import { GoogleMapsProps, MapProps } from "../types/@types";
+import { GoogleMapsProps, MapProps, MarkerProps } from "../types/@types";
 import calculateMidPoint from "../utils/CalculateMidpoint";
 
 const GoogleMap = (props: GoogleMapsProps) => {
@@ -40,7 +40,7 @@ const GoogleMap = (props: GoogleMapsProps) => {
   );
 };
 
-const Marker = (options: any) => {
+const Marker = (options: MarkerProps) => {
   const [marker, setMarker] = useState<any>();
 
   useEffect(() => {

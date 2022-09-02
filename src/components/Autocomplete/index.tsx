@@ -21,7 +21,7 @@ const Autocomplete = (props: AutocompleteProps) => {
     }
     const result = data.filter((item: AirportData) => {
       const dataTosearch = JSON.parse(JSON.stringify(item));
-      return dataTosearch.search.some(isPresent);
+      return dataTosearch.searchArray.some(isPresent);
     });
     const option = result.map((item: AirportData) => {
       return {
