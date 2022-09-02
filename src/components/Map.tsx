@@ -6,7 +6,7 @@ import calculateMidPoint from "../utils/CalculateMidpoint";
 const GoogleMap = (props: GoogleMapsProps) => {
   const { children, style, center, zoom = 3 } = props;
   const ref = useRef(null);
-  const [map, setMap] = useState<any>();
+  const [map, setMap] = useState<google.maps.Map>();
 
   useEffect(() => {
     if (ref.current && !map) {
