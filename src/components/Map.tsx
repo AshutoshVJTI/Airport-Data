@@ -12,6 +12,11 @@ const GoogleMap = (props: GoogleMapsProps) => {
     if (ref.current && !map) {
       setMap(new window.google.maps.Map(ref.current, {}));
     }
+    return () => {
+      if (map) {
+        setMap(undefined);
+      }
+    };
   }, [ref, map]);
 
   useEffect(() => {
@@ -41,7 +46,7 @@ const GoogleMap = (props: GoogleMapsProps) => {
 };
 
 const Marker = (options: MarkerProps) => {
-  const [marker, setMarker] = useState<any>();
+  const [marker, setMarker] = useState<google.maps.Marker>();
 
   useEffect(() => {
     if (!marker) {
@@ -71,6 +76,12 @@ const Marker = (options: MarkerProps) => {
           shouldFocus: false,
         });
       });
+    }
+    
+    return () => {
+      if(marker) {
+        google.maps.event.clearListeners(marker, "click")  
+      }
     }
   }, [marker, options]);
 
