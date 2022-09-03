@@ -37,7 +37,7 @@ const GoogleMap = (props: GoogleMapsProps) => {
     <>
       <div ref={ref} style={style} />
       {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
+        if (React.isValidElement(child) && map) {
           return React.cloneElement(child, { map });
         }
       })}
