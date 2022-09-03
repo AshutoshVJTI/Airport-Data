@@ -77,12 +77,12 @@ const Marker = (options: MarkerProps) => {
         });
       });
     }
-    
+
     return () => {
-      if(marker) {
-        google.maps.event.clearListeners(marker, "click")  
+      if (marker) {
+        google.maps.event.clearListeners(marker, "click");
       }
-    }
+    };
   }, [marker, options]);
 
   return null;
