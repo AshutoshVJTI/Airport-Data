@@ -98,7 +98,7 @@ const Map = (props: MapProps) => {
     { lat: lat1, lng: lon1 },
     { lat: lat2, lng: lon2 }
   );
-  const zoom = distance < 2000 ? 5 - distance / 400 : 2.5;
+  const zoom: number = distance < 2000 ? 5 - distance / 400 : 2.5;
   if (!process.env.REACT_APP_GOOGLE_API_KEY)
     return (
       <h3 style={{ color: "red" }}>

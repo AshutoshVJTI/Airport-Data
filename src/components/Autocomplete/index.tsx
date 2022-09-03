@@ -10,7 +10,7 @@ const Autocomplete = (props: AutocompleteProps) => {
   const { label, data, setValue, placeholder } = props;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const input = e.currentTarget.value;
+    const input: string = e.currentTarget.value;
     if (input === "") {
       setOptions([]);
       setInput("")
@@ -20,8 +20,8 @@ const Autocomplete = (props: AutocompleteProps) => {
       return searchData.includes(input.toLowerCase());
     }
     const result = data.filter((item: AirportData) => {
-      const dataTosearch = JSON.parse(JSON.stringify(item));
-      return dataTosearch.searchArray.some(isPresent);
+      const dataTosearch: AirportData = JSON.parse(JSON.stringify(item));
+      return dataTosearch.searchArray?.some(isPresent);
     });
     const option = result.map((item: AirportData) => {
       return {

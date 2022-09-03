@@ -8,14 +8,14 @@ import Autocomplete from "../components/Autocomplete";
 
 function DistancePage() {
   const [data, setData] = useState<AirportData[]>([]);
-  const [firstAirportLocation, setFirstAirportLocation] = useState('');
-  const [secondAirportLocation, setSecondAirportLocation] = useState('');
-  const [distance, setDistance] = useState(0);
+  const [firstAirportLocation, setFirstAirportLocation] = useState<string>('');
+  const [secondAirportLocation, setSecondAirportLocation] = useState<string>('');
+  const [distance, setDistance] = useState<number>(0);
   const [dataSelected, setDataSelected] = useState<AirportData[]>([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    const dataToSet = airportData.map((item) => ({
+    const dataToSet: AirportData[] = airportData.map((item) => ({
       ...item,
       searchArray: item.search?.split("|"),
     }));
@@ -40,9 +40,9 @@ function DistancePage() {
       return;
     }
     if (firstAirportLocation && secondAirportLocation) {
-      const firstCode = firstAirportLocation.split("-")[0];
-      const secondCode = secondAirportLocation.split("-")[0];
-      const selectData = airportData.filter(
+      const firstCode: string = firstAirportLocation.split("-")[0];
+      const secondCode: string = secondAirportLocation.split("-")[0];
+      const selectData: AirportData[] = airportData.filter(
         (item) => item.code === firstCode || item.code === secondCode
       );
       const distance = DistanceBetween(
